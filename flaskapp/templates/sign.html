@@ -1,7 +1,16 @@
 {% extends 'layout.html' %}
 {% block  body%}
+{%with messages = get_flashed_messages()%}
+{% if messages %}
+        {% for message in messages %}
+                <center>{{message}}</center>
+        {% endfor %}
+        
+{% endif %}
+
+{%endwith%}
 <center>
-   <form action="" method="post">
+   <form action="/signup" method="post">
     <div class="form">
         <h3>Create An Account</h3>
         <p>{{form.name.label}}</p>
